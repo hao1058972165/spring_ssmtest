@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itqf.mapper.ProfileMapper">
+    <select id="queryProfile" resultType="profile">
+        select * from profile
+    </select>
+    <select id="querySimple" resultType="profile">
+        select * from profile where id=#{id}
+    </select>
+    <update id="updateProfile">
+        update profile set name=#{name},birthday=#{birthday},gender=#{gender},career=#{career},address=#{address},mobile=#{mobile},
+        picture=#{picture}
+        where id = #{id}
+    </update>
+    <delete id="deleteProfile" parameterType="int">
+        delete  from profile where id=#{id}
+    </delete>
+    <resultMap id="mmap" type="profile">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="birthday" column="birthday"></result>
+        <result property="gender" column="gender"></result>
+        <result property="career" column="career"></result>
+        <result property="address" column="address"></result>
+        <result property="mobile" column="mobile"></result>
+        <result property="picture" column="picture"></result>
+        <result property="uid" column="uid"></result>
+        <association property="user" javaType="user">
+          <id property="uid" column="uid"></id>
+            <result property="username" column="username"></result>
+            <result property="password" column="password"></result>
+            <result property="status" column="status"></result>
+        </association>
+    </resultMap>
+    <select id="queryProfile2" resultMap="mmap">
+        select * from profile p JOIN user u on p.uid=u.uid where p.uid=#{uid}
+    </select>
+    
+</mapper>
+
