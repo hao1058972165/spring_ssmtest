@@ -8,21 +8,46 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>主界面</title>
+    <title>Title</title>
 </head>
 <body>
-        <form action="login" method="post">
-            <table align="center">
-                <h3 align="center">人员档案管理系统</h3>
-                <tr><td align="right">用户名：</td>
-                    <td><input type="text" name="username"></td></tr>
-                <tr><td align="right">密码：</td>
-                    <td><input type="password" name="password"></td>
-                </tr>
-                <tr><td></td>
-                    <td><input type="submit" value="登录"><button><a href="register">注册</a></button></td>
-                </tr>
-            </table>
-        </form>
+<h3>登录页面</h3>
+<form action="login" method="post">
+    <table align="center">
+        <tr>
+            <td>
+                <span>用户名：</span>
+            </td>
+            <td>
+                <input type="text" name="username" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>密码：</span>
+            </td>
+            <td>
+                <input type="text" name="password" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                角色：
+            <td>
+                <input type="radio" name="status" value="0" >讲师
+                <input type="radio" name="status" value="1"checked>学生
+            </td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button>登录</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+
 </body>
 </html>

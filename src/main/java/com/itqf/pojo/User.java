@@ -6,7 +6,7 @@ public class User implements Serializable {
     private int uid;
     private String username;
     private String password;
-    private int status;
+    private String status;
 
     public int getUid() {
         return uid;
@@ -32,11 +32,11 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }
